@@ -24,7 +24,7 @@
                            </div>
                        </v-card-title>
                        <v-card-actions v-if="['Menu'].includes($route.name)">
-                        <v-btn outline block color="brown" @click="showRecipes('kateo')" class="white--text mb-1">Select This Plan</v-btn>
+                        <v-btn outline block color="brown" @click="showRecipes('keto')" class="white--text mb-1">Select This Plan</v-btn>
                     </v-card-actions>
                    </v-card>
                 </v-flex> 
@@ -77,6 +77,47 @@
                     </v-card-actions>
                 </v-card>
               </v-flex>
+            </v-layout>
+            <v-layout row wrap class="mt-12" v-if="['Menu'].includes($route.name)"> 
+              <v-flex xs12 class="display-2 font-weight-black brown--text text-xs-center my-5">RECIPES</v-flex>
+              <v-flex xs12 sm12 md4 
+              v-for="recipe in recipes"
+              v-bind:key="recipe.label"
+              >
+                 <v-card
+                    class="mx-auto"
+                    max-width="344"
+                    outlined
+                 >
+                    <v-list-item three-line>
+                        <v-list-item-content>
+                            <div class="overline mb-4">
+                               Recipe
+                            </div>
+                            <v-list-item-title class="headline mb-1">
+                                Headline 5
+                            </v-list-item-title>
+                            <v-list-item-subtitle>
+                                recipe.label 
+                            </v-list-item-subtitle>
+                    </v-list-item-content>
+
+                    <!-- <v-img :src="recipe.image" height="100px"></v-img> -->
+                    </v-list-item>
+
+                    <v-card-actions>
+                    <v-btn
+                        outlined
+                        rounded
+                        text
+                        :to="recipe.url"
+                    >
+                        Link
+                    </v-btn>
+                    </v-card-actions>
+                 </v-card>     
+              </v-flex>
+
             </v-layout>
         </v-layout>
     </v-container>
