@@ -4,11 +4,11 @@
             <v-list>
                 <template v-for="(item, index) in items">
                     <v-list-tile :key="index">
-                        <v-list-tile-content>
+                        <v-list-tile-content class="pl-2">
                             {{item.title}}
                         </v-list-tile-content>
                     </v-list-tile>
-                    <v-divider :key="`divider-${index}`"></v-divider>
+                    <v-divider :key="`divider-${index}`" class="mb-2 mt-2"></v-divider>
                 </template>
             </v-list>
         </v-navigation-drawer>
