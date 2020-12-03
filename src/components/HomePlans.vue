@@ -111,7 +111,7 @@
                    }
                    catch(error) {
                        this.recipes = [];
-                   };
+                   }
                 }
         }
     }
