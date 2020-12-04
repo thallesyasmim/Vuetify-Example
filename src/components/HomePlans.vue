@@ -79,7 +79,7 @@
               </v-flex>
             </v-layout>
             <v-layout row wrap class="mt-12" v-if="['Menu'].includes($route.name)"> 
-              <v-flex xs12 class="display-2 font-weight-black brown--text text-xs-center my-5">RECIPES</v-flex>
+              <v-flex xs12 class="display-2 font-weight-black brown--text text-xs-center my-5" v-if="this.recipes.length > 0">RECIPES</v-flex>
               <v-flex xs12 sm12 md4 
               v-for="data of recipes"
               v-bind:key="data.recipe"
@@ -92,26 +92,26 @@
                     <v-list-item three-line>
                         <v-list-item-content>
                             <div class="overline mb-4">
-                               Recipe
+                               Calories: {{ parseInt(data.recipe.calories) }}
                             </div>
-                            <v-list-item-title class="headline mb-1">
-                                Headline 5
+                            <v-list-item-title class="headline mb-1 brown--text">
+                                {{ data.recipe.healthLabels[0] }} 
                             </v-list-item-title>
                             <v-list-item-subtitle>
-                               {{ data.recipe.label }} 
+                                {{ data.recipe.label }}
                             </v-list-item-subtitle>
                     </v-list-item-content>
 
-                    <!-- <v-img :src="recipe.image" height="100px"></v-img> -->
+                    <v-img :src="data.recipe.image" width="1px" height="120px" style="border-radius: 5px;" class="mt-10 ml-3"></v-img>
                     </v-list-item>
 
                     <v-card-actions>
                     <a :href="data.recipe.url" target="_blank">
                         <v-btn
                             outlined
-                            rounded
-                            text
-                            
+                            block 
+                            color="brown" 
+                            class="white--text mb-1 ml-1"
                         >
               
                         Link
@@ -152,9 +152,6 @@
                         const hits = response.data;
                         this.recipes = hits.hits;
                         console.log(this.recipes);
-                        for(const data of this.recipes) {
-                            console.log(data.recipe.label);
-                        }
                    }
                    catch(error) {
                        this.recipes = [];
@@ -165,4 +162,8 @@
 </script>
 
 <style scoped>
+    a {
+        color: white;
+        text-decoration: none;
+    }
 </style>
