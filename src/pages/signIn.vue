@@ -20,7 +20,7 @@
                             </v-text-field>
                             <v-text-field 
                                 prepend-icon="mdi-lock"
-                                :append-icon="alert1 ? 'mdi-eye' : 'mdi-eye-off'"
+                                :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
                                 name="password" 
                                 label="Password" 
                                 id="password"
@@ -95,6 +95,8 @@ export default {
                     }
                 }
             }
+            console.log(this.$route.path.substring(1,10))
+
         },
         userLogin() {
             return firebase.auth().signInWithEmailAndPassword(this.email, this.password)
