@@ -16,6 +16,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 - [Vue.js](https://vuejs.org/)
 - [Vuetify](https://vuetifyjs.com/en/)
+- [Recipe Search API](https://www.edamam.com/)
 
 
 ## 💻 Projeto
